@@ -1,5 +1,7 @@
 <?php
 
+use App\Receipe;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,6 +19,13 @@ Route::get('/php','HomeController@phpPage');
 Route::get('/js','HomeController@jsPage');
 
 Route::get('/','ReceipeController@index');*/
+
+
+
+
+Route::get('/',function(){
+	dd(app('test'));
+});
 
 Route::resource('receipe','ReceipeController');
 
