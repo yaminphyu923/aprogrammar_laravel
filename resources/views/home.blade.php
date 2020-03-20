@@ -16,6 +16,9 @@
 
 					<div class="container">
 						<h2>Home Page</h2>
+						@if(session("message"))
+							<p>{{session("message")}}</p>
+						@endif
 						<div>
 							<a href="/receipe/create"><button class="btn btn-success">Create</button></a>
 						</div>
