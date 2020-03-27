@@ -13,20 +13,20 @@
 			<!-- Please Login to continue. -->
 
 			<div class="container">
-				<h2>Home Page</h2>
+				<h2>Category</h2>
 				@if(session("message"))
 					<p>{{session("message")}}</p>
 				@endif
 				<div>
-					<a href="/receipe/create"><button class="btn btn-success">Create</button></a>
+					<a href="/category/create"><button class="btn btn-success">Create</button></a>
 				</div>
 
-				@foreach($data as $value)
-				<a href="/receipe/{{$value->id}}"><li>{{$value->name}}</li></a>
+				@foreach($category as $value)
+				<a href="/category/{{$value->id}}"><li>{{$value->name}}</li></a>
 				<hr>
 				@endforeach
 			</div>
-			{{$data->links()}}
+			{{$category->links()}}
 		</div>
 	</div>
 <!-- </div> -->
