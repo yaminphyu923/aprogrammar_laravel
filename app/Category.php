@@ -8,6 +8,7 @@ use App\Receipe;
 class Category extends Model
 {
     protected $table = "Category";
+    protected $fillable = ['name','description'];
 
     public function receipe()
     {

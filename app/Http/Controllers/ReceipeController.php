@@ -7,6 +7,9 @@ use App\Category;
 use App\Mail\ReceipeStored;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Events\ReceipeCreatedEvent;
+use App\User;
+use App\Notifications\ReceipeStoredNotification;
 
 class ReceipeController extends Controller
 {
@@ -24,8 +27,12 @@ class ReceipeController extends Controller
     
     public function index()
     {
+        // $user = User::find(2);
+        // $user->notify(new ReceipeStoredNotification());
+        // echo 'sent notification';
+        // exit();
 
-        $data = Receipe::where('author_id',auth()->id())->get();
+        $data = Receipe::where('author_id',auth()->id())->paginate(10);
         return view('home',compact('data'));
     }
 
@@ -75,6 +82,8 @@ class ReceipeController extends Controller
         $receipe->save();*/
 
         $receipe = Receipe::create($validatedData+['author_id'=>auth()->id()]);
+
+        // event(new ReceipeCreatedEvent($receipe));
         
         return redirect("receipe");
     }
