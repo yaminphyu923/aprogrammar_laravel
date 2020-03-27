@@ -23,11 +23,13 @@ Route::get('/','ReceipeController@index');*/
 
 
 
-Route::get('/',function(){
-	dd(app('test'));
-});
+Route::get('/','PublicController@index');
+
+Route::get('/detail/{id}','PublicController@show');
 
 Route::resource('receipe','ReceipeController');
+
+Route::resource('category','CategoryController');
 
 /*Route::get('receipe','ReceipeController@index');
 
